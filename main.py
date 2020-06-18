@@ -1,8 +1,6 @@
 import tkinter
 import ttk
 
-global price
-
 
 def create_choicebox(root, choices_list, label_name, position_row):
     tkinter.Label(root, text=label_name).grid(row=position_row,column=0)
@@ -24,16 +22,8 @@ def read_movies():
 
 def callBackFunc(event):
     if event.widget._name == "!combobox2":
-        #print(event.widget.get())
-        #print(int(read_movies()[event.widget.get()]))
-        global price
         price = (int(read_movies()[event.widget.get()]))
         print("Price: ",price)
-
-
-#def print_price():
-#    global price
-#    print(price)
 
 
 def main():
@@ -43,7 +33,6 @@ def main():
     create_choicebox(root, list(read_movies().keys()), "Films:", 1)
     create_choicebox(root, ["10:00", "12:00", "14:00"], "Hour:", 2)
     create_choicebox(root, ["Child", "Adult"], "Ticket:", 3)
-    #tkinter.Button(root, text="Get price:", command=print_price()).grid(row=6, column=0)
     tkinter.Button(root, text="Get price:").grid(row=6, column=0)
     root.mainloop()
 
